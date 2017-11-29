@@ -1,4 +1,5 @@
 import urllib.request
+import os
 
 
 def getHtml(url):
@@ -14,3 +15,12 @@ def getHtml(url):
 myUrl = "http://www.lifanacg.com"
 myHtml = getHtml(myUrl)
 print(myHtml)
+
+thisPath=os.path.abspath('.')
+f=open(thisPath+'/lifanacg.htm','w')
+tmp = myHtml.decode('gbk')
+f.write(str(tmp))
+f.close()
+
+# 随机间隔
+time.sleep(1 + float(random.randint(1, 100)) / 20)
